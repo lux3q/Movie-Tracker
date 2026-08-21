@@ -1,0 +1,8 @@
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5001"
+    volumes:
+      # The SQLite file lives here, so data survives a container restart.
+      - ./data:/app/data
