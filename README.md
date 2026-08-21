@@ -4,9 +4,6 @@ Movie Tracker is an application that lets users add movies to a wishlist of
 things to watch, filter that list, and mark movies as watched while giving
 them a rating from 1 to 5.
 
-The page itself is delivered empty and filled in by JavaScript that calls the
-project's own API, so the web service can also be used on its own.
-
 ## Features
 
 - Add a movie: title, optional director, and one or more genres
@@ -16,9 +13,6 @@ project's own API, so the web service can also be used on its own.
 - Edit a movie, including its rating
 - Delete a movie
 - Statistics with two charts: watched vs wishlist, and movies per genre
-
-Input is validated on the server: a rating has to be a whole number from 1 to
-5, only a watched movie can be rated, and only known genres are accepted.
 
 ## Running with Docker
 
