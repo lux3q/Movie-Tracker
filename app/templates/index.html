@@ -14,19 +14,15 @@
         </header>
 
         <form id="add-form" class="add-form">
-            <input type="text" id="title" placeholder="Movie title" required>
-            <select id="genre" required>
-                <option value="" disabled selected>Genre</option>
-                <option value="Action">Action</option>
-                <option value="Animation">Animation</option>
-                <option value="Comedy">Comedy</option>
-                <option value="Documentary">Documentary</option>
-                <option value="Drama">Drama</option>
-                <option value="Horror">Horror</option>
-                <option value="Romance">Romance</option>
-                <option value="Sci-Fi">Sci-Fi</option>
-                <option value="Thriller">Thriller</option>
-            </select>
+            <div class="form-row">
+                <input type="text" id="title" placeholder="Movie title" required>
+                <input type="text" id="director" placeholder="Director (optional)">
+            </div>
+
+            <fieldset class="genre-picker" id="genre-picker">
+                <legend>Genres</legend>
+            </fieldset>
+
             <button type="submit">Add to wishlist</button>
         </form>
 
@@ -39,8 +35,48 @@
         </div>
 
         <div id="movie-list" class="movie-list"></div>
+
+        <section class="stats" id="stats" hidden>
+            <h2>Overview</h2>
+
+            <div class="tiles">
+                <div class="tile">
+                    <span class="tile-value" id="stat-total">0</span>
+                    <span class="tile-label">Movies</span>
+                </div>
+                <div class="tile">
+                    <span class="tile-value" id="stat-watched">0</span>
+                    <span class="tile-label">Watched</span>
+                </div>
+                <div class="tile">
+                    <span class="tile-value" id="stat-wishlist">0</span>
+                    <span class="tile-label">Want to watch</span>
+                </div>
+                <div class="tile">
+                    <span class="tile-value" id="stat-average">&ndash;</span>
+                    <span class="tile-label">Average rating</span>
+                </div>
+            </div>
+
+            <div class="charts">
+                <figure class="chart-card">
+                    <figcaption>Watched vs want to watch</figcaption>
+                    <div class="chart-box">
+                        <canvas id="status-chart"></canvas>
+                    </div>
+                </figure>
+
+                <figure class="chart-card">
+                    <figcaption>Movies per genre</figcaption>
+                    <div class="chart-box">
+                        <canvas id="genre-chart"></canvas>
+                    </div>
+                </figure>
+            </div>
+        </section>
     </div>
 
+    <script src="{{ url_for('static', filename='chart.umd.js') }}"></script>
     <script src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>
