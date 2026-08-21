@@ -4,6 +4,11 @@ from app.models import Movie
 
 api = Blueprint("api", __name__, url_prefix="/api")
 
+GENRES = {
+    "Action", "Animation", "Comedy", "Documentary", "Drama",
+    "Horror", "Romance", "Sci-Fi", "Thriller",
+}
+
 
 def movie_to_dict(movie):
     return {
@@ -49,6 +54,8 @@ def create_movie():
         return jsonify({"error": "Title is required."}), 400
     if not genre:
         return jsonify({"error": "Genre is required."}), 400
+    if genre not in GENRES:
+        return jsonify({"error": "Unknown genre."}), 400
 
     movie = Movie(title=title, genre=genre)
     commit()

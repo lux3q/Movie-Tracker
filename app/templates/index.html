@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Movie Tracker</h1>
+            <p class="subtitle">Keep track of what you want to watch and what you have seen.</p>
+        </header>
+
+        <form id="add-form" class="add-form">
+            <input type="text" id="title" placeholder="Movie title" required>
+            <select id="genre" required>
+                <option value="" disabled selected>Genre</option>
+                <option value="Action">Action</option>
+                <option value="Animation">Animation</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Documentary">Documentary</option>
+                <option value="Drama">Drama</option>
+                <option value="Horror">Horror</option>
+                <option value="Romance">Romance</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+                <option value="Thriller">Thriller</option>
+            </select>
+            <button type="submit">Add to wishlist</button>
+        </form>
+
+        <p id="message" class="message" role="status"></p>
+
+        <div class="filters" id="filters">
+            <button type="button" data-filter="all" class="active">All</button>
+            <button type="button" data-filter="false">Want to watch</button>
+            <button type="button" data-filter="true">Watched</button>
+        </div>
+
+        <div id="movie-list" class="movie-list"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

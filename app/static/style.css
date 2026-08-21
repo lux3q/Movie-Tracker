@@ -1,0 +1,230 @@
+:root {
+    --bg: #10131a;
+    --surface: #191d27;
+    --surface-hover: #1f2430;
+    --border: #2a3040;
+    --text: #e6e9ef;
+    --text-muted: #949cad;
+    --accent: #6c8cff;
+    --accent-text: #ffffff;
+    --danger: #ff6b6b;
+    --star: #ffc65c;
+    --radius: 10px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 2rem 1rem 4rem;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+}
+
+.container {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.subtitle {
+    margin: 0.25rem 0 2rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* --- Add form --- */
+
+.add-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.add-form input,
+.add-form select {
+    flex: 1 1 180px;
+    min-width: 0;
+    padding: 0.65rem 0.85rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.95rem;
+}
+
+.add-form select:invalid {
+    color: var(--text-muted);
+}
+
+.add-form input::placeholder {
+    color: var(--text-muted);
+}
+
+.add-form input:focus,
+.add-form select:focus,
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 1px;
+}
+
+button {
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border-radius: var(--radius);
+    transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.add-form button {
+    padding: 0.65rem 1.1rem;
+    background: var(--accent);
+    color: var(--accent-text);
+    border: none;
+    font-weight: 600;
+}
+
+.add-form button:hover {
+    filter: brightness(1.1);
+}
+
+/* --- Message line --- */
+
+.message {
+    min-height: 1.4rem;
+    margin: 0 0 1.5rem;
+    font-size: 0.9rem;
+    color: var(--danger);
+}
+
+.message.success {
+    color: var(--accent);
+}
+
+/* --- Filters --- */
+
+.filters {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.filters button {
+    padding: 0.45rem 0.9rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+.filters button:hover {
+    background: var(--surface-hover);
+}
+
+.filters button.active {
+    background: var(--surface);
+    border-color: var(--accent);
+    color: var(--text);
+}
+
+/* --- Movie list --- */
+
+.movie-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.movie {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.movie-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.movie-title {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.movie-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.2rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.genre {
+    padding: 0.1rem 0.5rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+}
+
+.stars {
+    color: var(--star);
+    letter-spacing: 0.1em;
+}
+
+.movie-actions {
+    display: flex;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+.movie-actions button {
+    padding: 0.35rem 0.7rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+.movie-actions button:hover {
+    background: var(--surface-hover);
+    color: var(--text);
+}
+
+.movie-actions .delete:hover {
+    border-color: var(--danger);
+    color: var(--danger);
+}
+
+.rate-select {
+    padding: 0.35rem 0.5rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.empty {
+    padding: 2.5rem 1rem;
+    text-align: center;
+    color: var(--text-muted);
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+}
